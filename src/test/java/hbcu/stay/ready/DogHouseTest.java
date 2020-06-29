@@ -65,7 +65,7 @@ public class DogHouseTest {
         //the id of the dog is 0, so it shouldn't have anything there
         Assert.assertNull("asserting that dog is not in the dog house anymore", DogHouse.getDogById(0));
     }
-    
+
     @Test
     public void getDogByIdTest() {
         DogHouse.add(dog);

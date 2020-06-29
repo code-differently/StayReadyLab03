@@ -43,21 +43,21 @@ public class CatHouseTest {
     }
 
     @Test
-    public void removeWithIdTest() {
+    public void removeWithCatTest() {
+
         CatHouse.add(cat);
-        //testing method overriding with id of cat
-        CatHouse.remove(0);
+        //testing method overriding with cat object
+        CatHouse.remove(cat);
 
         //the id of the cat is 0, so it shouldn't have anything there
         Assert.assertNull("asserting that cat is not in the cat house anymore", CatHouse.getCatById(0));
     }
 
     @Test
-    public void removeWithCatTest() {
-
+    public void removeWithIdTest() {
         CatHouse.add(cat);
-        //testing method overriding with cat object
-        CatHouse.remove(cat);
+        //testing method overriding with id of cat
+        CatHouse.remove(0);
 
         //the id of the cat is 0, so it shouldn't have anything there
         Assert.assertNull("asserting that cat is not in the cat house anymore", CatHouse.getCatById(0));
