@@ -17,9 +17,8 @@ public class CatTest {
     String givenName;
     Date givenBirthDate;
     Integer givenId;
-
-    // When (a cat is constructed)
     Cat cat;
+    
     @Before
     public void instantiate() {
         givenName = "Zula";
@@ -54,7 +53,7 @@ public class CatTest {
         // Then
         Assert.assertEquals("Testing .setName", expectedName, actualName);
     }
-    
+
     // TODO - Create tests for `setBirthDate(Date birthDate)`
 
     @Test
@@ -111,6 +110,7 @@ public class CatTest {
     public void resetData() {
         cat.setName(givenName);
         cat.setBirthDate(givenBirthDate);
+        //can't set id 
     }
     
 
