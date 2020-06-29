@@ -24,7 +24,7 @@ public class CatHouseTest {
     }
 
     @Test
-    public void addTest() {  
+    public void addCatTest() {  
 
         // when
         CatHouse.add(cat);
