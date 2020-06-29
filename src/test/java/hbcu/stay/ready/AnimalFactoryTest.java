@@ -27,7 +27,6 @@ public class AnimalFactoryTest {
 
     }
     
-    //TODO - Create Test for `Animal createCat(String name, Date birthDate)`
     @Test
     public void createCatTest() {
         // given (cat)
