@@ -1,6 +1,7 @@
 package hbcu.stay.ready;
 
 import org.junit.Test;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 
@@ -37,9 +38,6 @@ public class CatHouseTest {
         Assert.assertEquals("testing name", name, actualName);
         Assert.assertEquals("testing date", date, actualDate);
         Assert.assertEquals("testing id", id, actualId); 
-
-        //makes it so that the cathouse is empty for the other tests
-        CatHouse.remove(cat);
     }
 
     @Test
@@ -75,9 +73,6 @@ public class CatHouseTest {
         Assert.assertEquals("testing name", name, actualName);
         Assert.assertEquals("testing date", date, actualDate);
         Assert.assertEquals("testing id", id, actualId); 
-
-        //makes it so that the cathouse is empty for the other tests
-        CatHouse.remove(cat);
     }
 
     @Test
@@ -92,8 +87,11 @@ public class CatHouseTest {
         // then 
         Assert.assertEquals("testing number of cats function with 0 cats", expectedNumCatsBefore, actualNumCatsBefore);
         Assert.assertEquals("testing number of cats function with 1 cat", expectedNumCats, actaulNumCats);
+    }
 
+    @After
+    public void reset() {
         //makes it so that the cathouse is empty for the other tests
-        CatHouse.remove(cat);
+        CatHouse.clear();
     }
 }

@@ -4,6 +4,7 @@ package hbcu.stay.ready;
 import org.junit.Test;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.After;
 
 import hbcu.stay.ready.animals.Dog;
 
@@ -40,9 +41,6 @@ public class DogHouseTest {
         Assert.assertEquals("testing name", name, actualName);
         Assert.assertEquals("testing date", date, actualDate);
         Assert.assertEquals("testing id", id, actualId); 
-
-        //makes it so that the DogHouse is empty for the other tests
-        DogHouse.remove(dog);
     }
 
     @Test
@@ -78,9 +76,6 @@ public class DogHouseTest {
         Assert.assertEquals("testing name", name, actualName);
         Assert.assertEquals("testing date", date, actualDate);
         Assert.assertEquals("testing id", id, actualId); 
-
-        //makes it so that the DogHouse is empty for the other tests
-        DogHouse.remove(dog);
     }
 
     @Test
@@ -95,10 +90,12 @@ public class DogHouseTest {
         // then 
         Assert.assertEquals("testing number of dogs function with 0 dogs", expectedNumDogsBefore, actualNumDogsBefore);
         Assert.assertEquals("testing number of dogs function with 1 dog", expectedNumdogs, actualNumDogs);
-
-        //makes it so that the DogHouse is empty for the other tests
-        DogHouse.remove(dog);
     }
 
+    @After
+    public void reset() {
+        //makes it so that the doghouse is empty for the other tests
+        DogHouse.clear();
+    }
     
 }
