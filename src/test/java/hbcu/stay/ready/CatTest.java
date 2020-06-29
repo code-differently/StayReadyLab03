@@ -8,6 +8,8 @@ import hbcu.stay.ready.animals.Cat;
 import hbcu.stay.ready.animals.Animal;
 import hbcu.stay.ready.animals.Mammal;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -54,7 +56,25 @@ public class CatTest {
         Assert.assertEquals("Testing .setName", expectedName, actualName);
     }
 
-    // TODO - Create tests for `setBirthDate(Date birthDate)`
+    @Test
+    public void setBirthDateTest() {
+        //given
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        //June 28, 2056 at 2:12 and 32 seconds pm
+        String dateInString = "28-06-2056 14:12:32";
+        Date expectedDate = new Date();
+		try {
+			expectedDate = sdf.parse(dateInString);
+		} catch (ParseException e) {
+			e.printStackTrace();
+        }
+        
+        //when
+        cat.setBirthDate(expectedDate);
+        Date actualDate = cat.getBirthDate();
+
+        Assert.assertEquals("testing if the date is the same", expectedDate, actualDate);
+    }
 
     @Test
     public void testSpeak() {

@@ -8,11 +8,12 @@ import hbcu.stay.ready.animals.Dog;
 import hbcu.stay.ready.animals.Animal;
 import hbcu.stay.ready.animals.Mammal;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
 public class DogTest {
-    // TODO - Create tests for `setBirthDate(Date birthDate)`
     // Given (dog data)
     String givenName;
     Date givenBirthDate;
@@ -52,6 +53,26 @@ public class DogTest {
         // Then (we expect to get the given name from the dog)
         String dogName = dog.getName();
         Assert.assertEquals("setting name", dogName, givenName);
+    }
+
+    @Test
+    public void setBirthDateTest() {
+        //given
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        //July 24, 2025 at 3:32 and 42 seconds pm
+        String dateInString = "24-07-2025 15:32:42";
+        Date expectedDate = new Date();
+		try {
+			expectedDate = sdf.parse(dateInString);
+		} catch (ParseException e) {
+			e.printStackTrace();
+        }
+        
+        //when
+        dog.setBirthDate(expectedDate);
+        Date actualDate = dog.getBirthDate();
+
+        Assert.assertEquals("testing if the date is the same", expectedDate, actualDate);
     }
 
     @Test
