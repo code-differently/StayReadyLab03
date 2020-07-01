@@ -2,7 +2,8 @@ package hbcu.stay.ready;
 
 import org.junit.Assert;
 import org.junit.Test;
-import hbcu.stay.ready.animals.Cat;
+
+import hbcu.stay.ready.animals.*;
 
 import java.util.Date;
 
@@ -36,6 +37,87 @@ public class CatTest {
         Assert.assertEquals(givenName, retrievedName);
         Assert.assertEquals(givenBirthDate, retrievedBirthDate);
         Assert.assertEquals(givenId, retrievedId);
+    }
+
+    @Test
+    public void setNameTest(){
+        //Given
+        String actual = "Martha";
+        String expected = "Martha";
+        //When
+        Cat cat = new Cat("Paul", new Date(),  0);
+        //Then
+        cat.setName(actual);
+        Assert.assertEquals(expected, cat.getName());
+    }
+
+    @Test
+    public void speakTest(){
+        //Given
+        String expected = "meow!";
+        //When
+        Cat cat = new Cat("Paul", new Date(),  0);
+        cat.speak();
+        //Then
+        Assert.assertEquals(expected, cat.speak());
+    }
+
+    @Test
+    public void setBirthDateTest(){
+        //Given
+        Date actual = new Date();
+        Date expected = new Date();
+        //When
+        Cat cat = new Cat("Paul", new Date(),  0);
+
+        //Then
+        cat.setBirthDate(actual);
+        Assert.assertEquals(expected, cat.getBirthDate());
+    }
+
+
+    @Test
+    public void eatTest(){
+        //Given
+        Food food = new Food();
+        Integer expected = 1;
+        //When
+        Cat cat = new Cat("Paul", new Date(), 0);
+
+        //Then
+        cat.eat(food);
+        Assert.assertEquals(expected, cat.getNumberOfMealsEaten());
+    }
+
+    @Test
+    public void getIDTest(){
+        //Given
+        Integer actual = 2;
+        Integer expected = 2;
+        //When
+        Cat cat = new Cat("Paul", new Date(), actual);
+        //Then
+        Assert.assertEquals(expected, cat.getId());
+    }
+
+    @Test
+    public void animalInheritTest(){
+        Cat cat = new Cat("Paul", new Date(), 0);
+        Boolean actual = cat instanceof Animal;
+        Boolean expected = true;
+
+        Assert.assertEquals(expected, actual);
+        
+    }
+
+    @Test
+    public void mammalInheritTest(){
+        Cat cat = new Cat("Paul", new Date(), 0);
+        Boolean actual = cat instanceof Mammal;
+        Boolean expected = true;
+
+        Assert.assertEquals(expected, actual);
+        
     }
 
 }

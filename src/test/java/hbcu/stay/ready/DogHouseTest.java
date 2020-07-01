@@ -1,6 +1,8 @@
 package hbcu.stay.ready;
 
 import hbcu.stay.ready.animals.animal_creation.AnimalFactory;
+
+import org.junit.Assert;
 import org.junit.Test;
 import hbcu.stay.ready.animals.Dog;
 import hbcu.stay.ready.animals.animal_storage.DogHouse;
@@ -28,5 +30,45 @@ public class DogHouseTest {
 
         // Then
         DogHouse.getNumberOfDogs();
+    }
+
+    @Test
+    public void addTest(){
+        Integer expected = 1;
+        Dog dog = new Dog("Bertha", new Date(), 0);
+        DogHouse.add(dog);
+        Assert.assertEquals(expected, DogHouse.getNumberOfDogs());
+    }
+
+    @Test
+    public void removeTest(){
+        Integer expected = 0;
+        Dog dog = new Dog("Bertha", new Date(), 0);
+        DogHouse.add(dog);
+        DogHouse.remove(0);
+        Assert.assertEquals(expected, DogHouse.getNumberOfDogs());
+    }
+    @Test
+    public void remove2Test(){
+        Integer expected = 0;
+        Dog dog = new Dog("Bertha", new Date(), 0);
+        DogHouse.add(dog);
+        DogHouse.remove(dog);
+        Assert.assertEquals(expected, DogHouse.getNumberOfDogs());
+    }
+
+    @Test
+    public void getDogByIdTest(){
+        Dog dog = new Dog("Bertha", new Date(), 0);
+        DogHouse.add(dog);
+        Assert.assertEquals(dog, DogHouse.getDogById(0));
+    }
+
+    @Test
+    public void getNumberOfDogs(){
+        Integer expected = 1;
+        Dog dog = new Dog("Bertha", new Date(), 0);
+        DogHouse.add(dog);
+        Assert.assertEquals(expected, DogHouse.getNumberOfDogs());
     }
 }
