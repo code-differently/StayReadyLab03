@@ -16,7 +16,7 @@ import java.util.Date;
 public class CatTest {
 
     // Given (cat data)
-    String givenName;
+    String givenName, expectedOutput;
     Date givenBirthDate;
     Integer givenId;
     Cat cat;
@@ -27,20 +27,21 @@ public class CatTest {
         givenBirthDate = new Date();
         givenId = 0;
         cat =  new Cat(givenName, givenBirthDate, givenId);
+        expectedOutput = cat.toString();
     }
 
     @Test
     public void constructorTest() {
+        String actualOutput = cat.toString();
 
-        // When (we retrieve data from the cat)
-        String retrievedName = cat.getName();
-        Date retrievedBirthDate = cat.getBirthDate();
-        Integer retrievedId = cat.getId();
+        Assert.assertTrue("testing to see if the variables are the same", actualOutput.equals(expectedOutput));
+    }
 
-        // Then (we expect the given data, to match the retrieved data)
-        Assert.assertEquals(givenName, retrievedName);
-        Assert.assertEquals(givenBirthDate, retrievedBirthDate);
-        Assert.assertEquals(givenId, retrievedId);
+    @Test
+    public void toStringTest() {
+        String actualOutput = cat.toString();
+
+        Assert.assertTrue("testing to see if the variables are the same", actualOutput.equals(expectedOutput));
     }
 
     @Test

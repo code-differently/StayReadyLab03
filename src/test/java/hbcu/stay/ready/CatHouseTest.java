@@ -12,16 +12,18 @@ import java.util.Date;
 
 public class CatHouseTest {
     //using only one cat
-    String name;
+    String name, expectedOutput;
     Date date;
     int id;
     Cat cat;
+
     @Before
     public void initialize() {
         name = "Zuko";
         date = new Date();
         id = 0;
         cat = new Cat(name, date, id);
+        expectedOutput = cat.toString();
     }
 
     @Test
@@ -30,14 +32,9 @@ public class CatHouseTest {
         // when
         CatHouse.add(cat);
         Cat actualCat = CatHouse.getCatById(0);
-        String actualName = actualCat.getName();
-        Date actualDate = actualCat.getBirthDate();
-        int actualId = actualCat.getId();
+        String actualOutput = actualCat.toString();
 
-        // then 
-        Assert.assertEquals("testing name", name, actualName);
-        Assert.assertEquals("testing date", date, actualDate);
-        Assert.assertEquals("testing id", id, actualId); 
+        Assert.assertTrue("testing if variables are the same", actualOutput.equals(expectedOutput));
     }
 
     @Test
@@ -65,14 +62,9 @@ public class CatHouseTest {
     public void getCatByIdTest() {
         CatHouse.add(cat);
         Cat actualCat = CatHouse.getCatById(0);
-        String actualName = actualCat.getName();
-        Date actualDate = actualCat.getBirthDate();
-        int actualId = actualCat.getId();
+        String actualOutput = actualCat.toString();
 
-        // then 
-        Assert.assertEquals("testing name", name, actualName);
-        Assert.assertEquals("testing date", date, actualDate);
-        Assert.assertEquals("testing id", id, actualId); 
+        Assert.assertTrue("testing if variables are the same", actualOutput.equals(expectedOutput));
     }
 
     @Test

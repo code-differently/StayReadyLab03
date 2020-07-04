@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class DogTest {
     // Given (dog data)
-    String givenName;
+    String givenName, expectedOutput;
     Date givenBirthDate;
     Integer givenId;
     Dog dog;
@@ -27,19 +27,21 @@ public class DogTest {
         givenId = 0;
         // Given (a name exists and a dog exists)
         dog = new Dog(givenName, givenBirthDate, givenId);
+        expectedOutput = dog.toString();
     }
 
     @Test
     public void constructorTest() {
-         // When (we retrieve data from the cat)
-         String retrievedName = dog.getName();
-         Date retrievedBirthDate = dog.getBirthDate();
-         Integer retrievedId = dog.getId();
- 
-         // Then (we expect the given data, to match the retrieved data)
-         Assert.assertEquals("checking name", givenName, retrievedName);
-         Assert.assertEquals("checking birthdate", givenBirthDate, retrievedBirthDate);
-         Assert.assertEquals("checking id", givenId, retrievedId);
+        String actualOutput = dog.toString();
+
+        Assert.assertTrue("testing to see if the variables are the same", actualOutput.equals(expectedOutput));
+    }
+
+    @Test
+    public void toStringTest() {
+        String actualOutput = dog.toString();
+
+        Assert.assertTrue("testing to see if the variables are the same", actualOutput.equals(expectedOutput));
     }
 
     @Test

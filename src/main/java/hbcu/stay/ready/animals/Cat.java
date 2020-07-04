@@ -10,4 +10,9 @@ public class Cat extends Mammal {
     public String speak() {
         return "meow!";
     }
+
+    public String toString() {
+        return "My name is: " + getName() + " my birthdate is: " + getBirthDate() + " my id is: " + getId(); 
+    }
 }
+

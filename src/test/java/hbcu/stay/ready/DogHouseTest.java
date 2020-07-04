@@ -1,6 +1,5 @@
 package hbcu.stay.ready;
 
-
 import org.junit.Test;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,32 +14,30 @@ import java.util.Date;
 public class DogHouseTest {
 
     //using only one dog
-    String name;
+    String name, expectedOutput;
     Date date;
     int id;
     Dog dog;
+
     @Before
     public void initialize() {
         name = "Oliver";
         date = new Date();
         id = 0;
         dog = new Dog(name, date, id);
+        expectedOutput = dog.toString();
     }
 
     @Test
     public void addDogTest() {  
-
         // when
         DogHouse.add(dog);
         Dog actualDog = DogHouse.getDogById(0);
-        String actualName = actualDog.getName();
-        Date actualDate = actualDog.getBirthDate();
-        int actualId = actualDog.getId();
+        String actualOutput = actualDog.toString();
 
         // then 
-        Assert.assertEquals("testing name", name, actualName);
-        Assert.assertEquals("testing date", date, actualDate);
-        Assert.assertEquals("testing id", id, actualId); 
+        // tests to see if the variables of the dog in the doghouse are the same as the dog before 
+        Assert.assertTrue("testing if variables are the same", actualOutput.equals(expectedOutput));
     }
 
     @Test
@@ -66,16 +63,14 @@ public class DogHouseTest {
 
     @Test
     public void getDogByIdTest() {
+        //when
         DogHouse.add(dog);
         Dog actualDog = DogHouse.getDogById(0);
-        String actualName = actualDog.getName();
-        Date actualDate = actualDog.getBirthDate();
-        int actualId = actualDog.getId();
+        String actualOutput = actualDog.toString();
 
-        // then 
-        Assert.assertEquals("testing name", name, actualName);
-        Assert.assertEquals("testing date", date, actualDate);
-        Assert.assertEquals("testing id", id, actualId); 
+        //then
+        // tests to see if the variables of the dog in the doghouse are the same as the dog before 
+        Assert.assertTrue("testing if variables are the same", actualOutput.equals(expectedOutput));
     }
 
     @Test
