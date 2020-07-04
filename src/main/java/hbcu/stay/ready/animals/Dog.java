@@ -10,4 +10,9 @@ public class Dog extends Mammal {
     public String speak() {
         return "bark!";
     }
+
+    public String toString()
+    {
+        return "My name is " +getName() + " My age is  " + getBirthDate();
+    }
 }
