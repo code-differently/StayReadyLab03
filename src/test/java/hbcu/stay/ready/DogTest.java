@@ -1,5 +1,5 @@
 package hbcu.stay.ready;
-gi
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
