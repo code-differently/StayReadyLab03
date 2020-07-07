@@ -1,13 +1,13 @@
 package hbcu.stay.ready.animals;
 
-import hbcu.stay.ready.Food;
+import hbcu.stay.ready.Cat;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 public abstract class Mammal implements Animal {
     private final Integer id;
-    private ArrayList<Food> eatenMeals;
+    private ArrayList<Cat> eatenMeals;
     private String name;
     private Date birthDate;
 
@@ -39,7 +39,7 @@ public abstract class Mammal implements Animal {
         return eatenMeals.size();
     }
 
-    public void eat(Food food) {
+    public void eat(Cat food) {
         eatenMeals.add(food);
     }
 
