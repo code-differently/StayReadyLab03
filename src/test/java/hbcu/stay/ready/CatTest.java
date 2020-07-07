@@ -6,36 +6,107 @@ import hbcu.stay.ready.animals.Cat;
 
 import java.util.Date;
 
+@Test
+public void setNameTest() {
+        
+    // Given (cat data)
+        Cat cat = new Cat("Oreo", newDate(), 01);
+        cat.setName("Honey");
 
-public class CatTest {
-    // TODO - Create tests for `void setName(String name)`
-    // TODO - Create tests for `speak`
-    // TODO - Create tests for `setBirthDate(Date birthDate)`
-    // TODO - Create tests for `void eat(Food food)`
-    // TODO - Create tests for `Integer getId()`
-    // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
-    // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
+    // When (a cat is constructed)
+    String expected = "Honey";
+    String actual = cat.getName();
 
+    // Then (we expect the given data, to match the retrieved data)
+        Assert.assertEquals(expected, actual);
+}
 
-    @Test
-    public void constructorTest() {
-        // Given (cat data)
-        String givenName = "Zula";
-        Date givenBirthDate = new Date();
-        Integer givenId = 0;
+@Test 
+public void setBirthDate() {
+    // Given (cat data)
+    Cat cat = new Cat("Oreo", newDate(), 01);
+    String expected= "Matt";
+    // When (a cat is constructed)
+    Cat.setName("Matt");
+    String actual = cat.getName();
 
-        // When (a cat is constructed)
-        Cat cat = new Cat(givenName, givenBirthDate, givenId);
-
-        // When (we retrieve data from the cat)
-        String retrievedName = cat.getName();
-        Date retrievedBirthDate = cat.getBirthDate();
-        Integer retrievedId = cat.getId();
-
-        // Then (we expect the given data, to match the retrieved data)
-        Assert.assertEquals(givenName, retrievedName);
-        Assert.assertEquals(givenBirthDate, retrievedBirthDate);
-        Assert.assertEquals(givenId, retrievedId);
-    }
+    // Then (we expect the given data, to match the retrieved data)
+    Assert.assertEquals("testing the name of the cat", expected, actual);
 
 }
+
+@Test 
+public void speakTest() {
+    
+    // Given (cat data)
+    Cat cat = new Cat("Oreo", newDate(), 01);
+    // When 
+    String expected= "Meow";
+    String actual = cat.speak();
+    // Then 
+    Assert.assertEquals(expected,actual);
+}
+
+@Test
+public void setBirthDateTest(){
+
+    //given 
+    Cat cat = new Cat("Oreo", new Date(), 4);
+    Date birthdate = new Date();
+    cat.setBirthDate(birthdate);
+
+    //when 
+    Date expected = birthdate;
+    Date actual = cat.getBirthDate;
+
+    //then
+    Assert.assertEquals(expected, actual);
+}
+
+@Test
+public void eatTest() {
+
+    // Given (cat data)
+    Cat cat = new Cat("Oreo", newDate(), 01);
+    String expected= "Matt";
+    // When (a cat is constructed)
+    Cat.setName("Matt");
+    String actual = cat.getName();
+
+    // Then (we expect the given data, to match the retrieved data)
+    Assert.assertEquals("testing the name of the cat", expected, actual);
+
+@Test 
+public void getId() {
+    // Given (cat data)
+    Cat cat = new Cat("Oreo", newDate(), 01);
+    String expected= "Matt";
+    // When (a cat is constructed)
+    Cat.setName("Matt");
+    String actual = cat.getName();
+
+    // Then (we expect the given data, to match the retrieved data)
+    Assert.assertEquals("testing the name of the cat", expected, actual);
+}
+
+@Test 
+public void AnimalInheritanceTest(){
+    Cat cat = new Cat(null, null, null);
+    boolean expected = true;
+    boolean actual = cat instanceof Animal;
+
+    Assert.assertEquals(expected,actual);
+}
+
+@Test
+public void MammalInheritanceTest(){
+
+    Cat cat = new Cat(null, null, null);
+    boolean expected = true;
+    boolean actual = cat instanceof Mammal;
+
+    Assert.assertEquals(expected, actual);
+}
+
+
+

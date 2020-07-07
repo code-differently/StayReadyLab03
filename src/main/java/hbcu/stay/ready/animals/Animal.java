@@ -1,11 +1,11 @@
 package hbcu.stay.ready.animals;
 
-import hbcu.stay.ready.Food;
+import hbcu.stay.ready.Cat;
 
 public interface Animal {
     String speak();
     Integer getNumberOfMealsEaten();
     Integer getId();
-    void eat(Food food);
+    void eat(Cat food);
 
 }

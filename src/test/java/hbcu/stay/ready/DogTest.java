@@ -26,4 +26,32 @@ public class DogTest {
         String dogName = dog.getName();
         Assert.assertEquals(dogName, givenName);
     }
+
+    public void newDogTest(){
+        Dog dog = new Dog("Chance", new Date(), 1);
+
+        String actualName = "Chance";
+        Date actualDate = newDate();
+        Integer actualId = 1;
+
+        String expectedName = dog.getName();
+        Date expectedDate = dog.getBirthDate();
+        Integer expected = dog.getId();
+
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedDate, actualDate);
+        Assert.assertEquals(expectedId, actualId);
+    }
+
+    @Test 
+    public void speakTest(){
+        String expected = "bark!!!";
+
+        Dog dog = new Dog("Remi", new Date(, 2));
+
+        String actual = dog.speak();
+    }
+
+
 }
+
