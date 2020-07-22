@@ -5,6 +5,15 @@ import org.junit.Test;
 import hbcu.stay.ready.animals.Cat;
 
 import java.util.Date;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import hbcu.stay.ready.animals.Animal;
+import hbcu.stay.ready.animals.Cat;
+import hbcu.stay.ready.animals.Mammal;
+
+import java.util.Date;
 
 
 public class CatTest {
@@ -15,6 +24,14 @@ public class CatTest {
     // TODO - Create tests for `Integer getId()`
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
     // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
+
+    Cat cat;
+
+    @Before
+    public void setup() {
+        this.cat = new Cat("Tigre", new Date(), 1);
+    }
+
 
 
     @Test
