@@ -7,5 +7,4 @@ public interface Animal {
     Integer getNumberOfMealsEaten();
     Integer getId();
     void eat(Food food);
-
 }

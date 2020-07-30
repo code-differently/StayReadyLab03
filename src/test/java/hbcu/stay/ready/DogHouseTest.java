@@ -53,6 +53,7 @@ public class DogHouseTest {
 
         // When
         dogHouse.add(fido);
+        System.out.println(dogHouse.getNumberOfDogs());
         dogHouse.remove(fido);
         Integer expected = 0;
         Integer actual = dogHouse.getNumberOfDogs();
@@ -93,18 +94,4 @@ public class DogHouseTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test
-    public void testGetNumberOfDogs() {
-        // Given (some
-        String name = "Milo";
-        Date birthDate = new Date();
-        Dog animal = AnimalFactory.createDog(name, birthDate);
-        DogHouse.clear();
-
-        // When
-        DogHouse.add(animal);
-
-        // Then
-        DogHouse.getNumberOfDogs();
-    }
 }

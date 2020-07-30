@@ -19,7 +19,7 @@ public class AnimalFactoryTest {
         Date birthDate = new Date();
         AnimalFactory dogFactory = new AnimalFactory();
 
-        // When 
+        // When
         Dog fido = dogFactory.createDog(name, birthDate);
 
         String expectedName = "benji";
@@ -31,7 +31,6 @@ public class AnimalFactoryTest {
         // Then
         Assert.assertEquals(expectedName, actualName);
         Assert.assertEquals(expectedDate, actualDate);
-    
     }
 
     //TODO - Create Test for `Animal createCat(String name, Date birthDate)`
